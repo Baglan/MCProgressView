@@ -18,6 +18,13 @@
 		863FBEB9168EC76400E5CDB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863FBEB8168EC76400E5CDB1 /* Default-568h@2x.png */; };
 		863FBEBC168EC76400E5CDB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863FBEBB168EC76400E5CDB1 /* ViewController.m */; };
 		863FBEBF168EC76400E5CDB1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 863FBEBD168EC76400E5CDB1 /* ViewController.xib */; };
+		863FBEC8168EC78400E5CDB1 /* MCProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863FBEC7168EC78400E5CDB1 /* MCProgressBarView.m */; };
+		863FBECE168EC82400E5CDB1 /* progress-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 863FBECA168EC82400E5CDB1 /* progress-bg.png */; };
+		863FBECF168EC82400E5CDB1 /* progress-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863FBECB168EC82400E5CDB1 /* progress-bg@2x.png */; };
+		863FBED0168EC82400E5CDB1 /* progress-fg.png in Resources */ = {isa = PBXBuildFile; fileRef = 863FBECC168EC82400E5CDB1 /* progress-fg.png */; };
+		863FBED1168EC82400E5CDB1 /* progress-fg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 863FBECD168EC82400E5CDB1 /* progress-fg@2x.png */; };
+		863FBED3168EC95000E5CDB1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 863FBED2168EC95000E5CDB1 /* README.md */; };
+		863FBED5168ECBA300E5CDB1 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 863FBED4168ECBA300E5CDB1 /* sample.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,14 @@
 		863FBEBA168EC76400E5CDB1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		863FBEBB168EC76400E5CDB1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		863FBEBE168EC76400E5CDB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		863FBEC6168EC78400E5CDB1 /* MCProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCProgressBarView.h; path = Classes/MCProgressBarView.h; sourceTree = "<group>"; };
+		863FBEC7168EC78400E5CDB1 /* MCProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCProgressBarView.m; path = Classes/MCProgressBarView.m; sourceTree = "<group>"; };
+		863FBECA168EC82400E5CDB1 /* progress-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress-bg.png"; sourceTree = "<group>"; };
+		863FBECB168EC82400E5CDB1 /* progress-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress-bg@2x.png"; sourceTree = "<group>"; };
+		863FBECC168EC82400E5CDB1 /* progress-fg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress-fg.png"; sourceTree = "<group>"; };
+		863FBECD168EC82400E5CDB1 /* progress-fg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress-fg@2x.png"; sourceTree = "<group>"; };
+		863FBED2168EC95000E5CDB1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		863FBED4168ECBA300E5CDB1 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,9 @@
 		863FBE93168EC76400E5CDB1 = {
 			isa = PBXGroup;
 			children = (
+				863FBED4168ECBA300E5CDB1 /* sample.png */,
+				863FBED2168EC95000E5CDB1 /* README.md */,
+				863FBEC5168EC76A00E5CDB1 /* Classes */,
 				863FBEA8168EC76400E5CDB1 /* MCProgressBarView */,
 				863FBEA1168EC76400E5CDB1 /* Frameworks */,
 				863FBE9F168EC76400E5CDB1 /* Products */,
@@ -83,6 +101,7 @@
 		863FBEA8168EC76400E5CDB1 /* MCProgressBarView */ = {
 			isa = PBXGroup;
 			children = (
+				863FBEC9168EC7DF00E5CDB1 /* Assets */,
 				863FBEB1168EC76400E5CDB1 /* AppDelegate.h */,
 				863FBEB2168EC76400E5CDB1 /* AppDelegate.m */,
 				863FBEBA168EC76400E5CDB1 /* ViewController.h */,
@@ -105,6 +124,26 @@
 				863FBEB8168EC76400E5CDB1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		863FBEC5168EC76A00E5CDB1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				863FBEC6168EC78400E5CDB1 /* MCProgressBarView.h */,
+				863FBEC7168EC78400E5CDB1 /* MCProgressBarView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		863FBEC9168EC7DF00E5CDB1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				863FBECA168EC82400E5CDB1 /* progress-bg.png */,
+				863FBECB168EC82400E5CDB1 /* progress-bg@2x.png */,
+				863FBECC168EC82400E5CDB1 /* progress-fg.png */,
+				863FBECD168EC82400E5CDB1 /* progress-fg@2x.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +202,12 @@
 				863FBEB7168EC76400E5CDB1 /* Default@2x.png in Resources */,
 				863FBEB9168EC76400E5CDB1 /* Default-568h@2x.png in Resources */,
 				863FBEBF168EC76400E5CDB1 /* ViewController.xib in Resources */,
+				863FBECE168EC82400E5CDB1 /* progress-bg.png in Resources */,
+				863FBECF168EC82400E5CDB1 /* progress-bg@2x.png in Resources */,
+				863FBED0168EC82400E5CDB1 /* progress-fg.png in Resources */,
+				863FBED1168EC82400E5CDB1 /* progress-fg@2x.png in Resources */,
+				863FBED3168EC95000E5CDB1 /* README.md in Resources */,
+				863FBED5168ECBA300E5CDB1 /* sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +221,7 @@
 				863FBEAF168EC76400E5CDB1 /* main.m in Sources */,
 				863FBEB3168EC76400E5CDB1 /* AppDelegate.m in Sources */,
 				863FBEBC168EC76400E5CDB1 /* ViewController.m in Sources */,
+				863FBEC8168EC78400E5CDB1 /* MCProgressBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
