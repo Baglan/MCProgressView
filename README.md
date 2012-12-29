@@ -2,7 +2,7 @@
 
 Progress bar view with custom images.
 
-![Sample](sample.png)
+![Sample](https://raw.github.com/Baglan/MCProgressView/master/sample.png)
 
 ## Installation
 
