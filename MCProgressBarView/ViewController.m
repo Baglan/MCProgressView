@@ -13,23 +13,41 @@
 
 @end
 
-@implementation ViewController {
-    MCProgressBarView * _progressBarView;
+@implementation ViewController
+
+- (void)addProgressBarAtRect:(CGRect)rect taperOff:(BOOL)taperOff progress:(double)progress
+{
+    UIImage * backgroundImage = [[UIImage imageNamed:@"progress-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    UIImage * foregroundImage = [[UIImage imageNamed:@"progress-fg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
+    
+    MCProgressBarView * progressBarView = [[MCProgressBarView alloc] initWithFrame:rect
+                                                 backgroundImage:backgroundImage
+                                                 foregroundImage:foregroundImage];
+
+    if (taperOff) {
+        progressBarView.offsetForZero = 10.0;
+    }
+    progressBarView.progress = progress;
+    
+    [self.view addSubview:progressBarView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-        
-    UIImage * backgroundImage = [[UIImage imageNamed:@"progress-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
-    UIImage * foregroundImage = [[UIImage imageNamed:@"progress-fg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
-    _progressBarView = [[MCProgressBarView alloc] initWithFrame:CGRectMake(25, 100, 270, 20)
-                                                backgroundImage:backgroundImage
-                                                foregroundImage:foregroundImage];
-    [self.view addSubview:_progressBarView];
+
+    [self addProgressBarAtRect:CGRectMake(60, 110, 240, 20) taperOff:NO progress:0.0];
+    [self addProgressBarAtRect:CGRectMake(60, 135, 240, 20) taperOff:NO progress:0.02];
+    [self addProgressBarAtRect:CGRectMake(60, 160, 240, 20) taperOff:NO progress:0.5];
+    [self addProgressBarAtRect:CGRectMake(60, 185, 240, 20) taperOff:NO progress:0.98];
+    [self addProgressBarAtRect:CGRectMake(60, 210, 240, 20) taperOff:NO progress:1.0];
     
-    _progressBarView.progress = 0.25;
+    [self addProgressBarAtRect:CGRectMake(60, 280, 240, 20) taperOff:YES progress:0.0];
+    [self addProgressBarAtRect:CGRectMake(60, 305, 240, 20) taperOff:YES progress:0.02];
+    [self addProgressBarAtRect:CGRectMake(60, 330, 240, 20) taperOff:YES progress:0.5];
+    [self addProgressBarAtRect:CGRectMake(60, 355, 240, 20) taperOff:YES progress:0.98];
+    [self addProgressBarAtRect:CGRectMake(60, 380, 240, 20) taperOff:YES progress:1.0];
 }
 
 - (void)didReceiveMemoryWarning

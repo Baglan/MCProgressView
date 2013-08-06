@@ -7,12 +7,14 @@
 //
 
 #import "MCProgressBarView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MCProgressBarView {
     UIImageView * _backgroundImageView;
     UIImageView * _foregroundImageView;
-    CGFloat minimumForegroundWidth;
-    CGFloat availableWidth;
+    CGFloat _minimumForegroundWidth;
+    CGFloat _availableWidth;
+    CALayer * _maskLayer;
 }
 
 - (id)initWithFrame:(CGRect)frame backgroundImage:(UIImage *)backgroundImage foregroundImage:(UIImage *)foregroundImage
@@ -27,23 +29,47 @@
         _foregroundImageView.image = foregroundImage;
         [self addSubview:_foregroundImageView];
         
-        UIEdgeInsets insets = foregroundImage.capInsets;
-        minimumForegroundWidth = insets.left + insets.right;
+        _maskLayer = [CALayer layer];
+        _maskLayer.contents = (id)[self generateMaskImageFromImage:foregroundImage forSize:frame.size].CGImage;
+        _maskLayer.frame = (CGRect){CGPointZero, frame.size};
+        _foregroundImageView.layer.mask = _maskLayer;
         
-        availableWidth = self.bounds.size.width - minimumForegroundWidth;
-        
+        UIEdgeInsets capInsets = foregroundImage.capInsets;
+        self.offsetForZero = capInsets.left + capInsets.right;
         self.progress = 0.5;
     }
     return self;
 }
 
+- (UIImage *)generateMaskImageFromImage:(UIImage *)image forSize:(CGSize)size
+{
+    CGFloat scale = image.scale;
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    CGImageRef cgImage = CGBitmapContextCreateImage(context);
+    UIImage *outImage = [UIImage imageWithCGImage:cgImage scale:scale orientation:UIImageOrientationUp];
+    
+    CGImageRelease(cgImage);
+    UIGraphicsEndImageContext();
+    
+    return outImage;
+}
+
+- (void)setOffsetForZero:(CGFloat)offsetForZero
+{
+    _offsetForZero = offsetForZero;
+    self.progress = self.progress;
+}
+
 - (void)setProgress:(double)progress
 {
     _progress = progress;
-    
-    CGRect frame = _foregroundImageView.frame;
-    frame.size.width = roundf(minimumForegroundWidth + availableWidth * progress);
-    _foregroundImageView.frame = frame;
+    CGRect frame = _maskLayer.frame;
+    frame.origin.x = (frame.size.width - _offsetForZero) * (_progress - 1.0);
+    _maskLayer.frame = frame;
 }
 
 @end

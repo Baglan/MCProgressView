@@ -13,5 +13,6 @@
 - (id)initWithFrame:(CGRect)frame backgroundImage:(UIImage *)backgroundImage foregroundImage:(UIImage *)foregroundImage;
 
 @property (nonatomic, assign) double progress;
+@property (nonatomic, assign) CGFloat offsetForZero;
 
 @end
